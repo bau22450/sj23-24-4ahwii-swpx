@@ -1,0 +1,9 @@
+#root {
+    display: grid;
+    grid-template: repeat(7, 7em) / repeat(7, 7em);
+}
+#root > * {
+    background: #eee;
+    border: 1px solid #aaa;
+    padding: 1em;
+}
