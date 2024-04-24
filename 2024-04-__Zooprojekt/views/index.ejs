@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello 4AHWII</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h2>Meine Zoos</h2>
+    <ul>
+        <% zoos.forEach(e=> { %>
+        <li data-id="<%= e.id %>">
+            <%= `Land: ${e.land} Stadt: ${e.stadt} Adresse: ${e.adresse} (${e.baujahr})`%>
+            <a href = "/InfoZoo/<%= e.id %>">Info</a>
+        </li>
+
+        <!-- <% if (e.baujahr < 1950) { %>
+        <p>Der Zoo ist eher alt</p>
+        <% } else { %>
+        <p>Der Zoo ist NEU</p>
+        <% } %>
+    -->
+        <% }) %>
+    </ul>
+</body>
+
+</html>
