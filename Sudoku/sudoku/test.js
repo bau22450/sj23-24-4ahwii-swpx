@@ -91,7 +91,8 @@ app.get("/solve", async (req, res) => {
     if (solved) {
       res.json({ grid: solvedSudoku, maxDepth });
     } else {
-      res.status(500).send("Unable to solve the Sudoku puzzle.");
+      const emptySudoku = Array.from({ length: 9 }, () => Array(9).fill(0));
+      res.json({ grid: emptySudoku });
     }
   } catch (error) {
     res.status(500).send("Error solving the Sudoku puzzle.");
