@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sudoku Solver</title>
+  <script src="script.js" defer></script>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      flex-direction: column;
+    }
+
+    .container {
+      max-width: 800px;
+      text-align: center;
+    }
+
+    .controls {
+      margin-bottom: 20px;
+    }
+
+    label,
+    select,
+    button {
+      font-size: 16px;
+      margin: 5px;
+      padding: 8px;
+    }
+
+    .sudoku-container {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 20px;
+      gap: 30px;
+      /* Add a gap between the two Sudoku tables */
+    }
+
+    .sudoku-table {
+      border-collapse: collapse;
+      margin: 0 auto;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .sudoku-table td {
+      border: 1px solid #999;
+      width: 40px;
+      height: 40px;
+      text-align: center;
+      font-size: 18px;
+      color: #555;
+      position: relative;
+    }
+
+    /* Style for 3x3 sub-squares */
+    .sudoku-table td:nth-child(3n) {
+      border-right: 2px solid #000;
+    }
+
+    .sudoku-table td:nth-child(3n+1) {
+      border-left: 2px solid #000;
+    }
+
+    .sudoku-table tr:nth-child(3n) td {
+      border-bottom: 2px solid #000;
+    }
+
+    .sudoku-table tr:nth-child(3n+1) td {
+      border-top: 2px solid #000;
+    }
+
+    h1 {
+      font-size: 24px;
+      color: #333;
+    }
+
+    h2 {
+      font-size: 20px;
+      margin: 0 0 10px;
+      color: #555;
+    }
+
+    .table-wrapper {
+      text-align: center;
+    }
+
+    #result-message {
+      margin-top: 15px;
+      font-size: 16px;
+      color: #555;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Sudoku Solver</h1>
+    <div class="controls">
+      <label for="sudokuSelect">Select Sudoku Puzzle:</label>
+      <select id="sudokuSelect">
+        <option value="unsolvedSudoku1.json">Unsolved Sudoku 1</option>
+        <option value="unsolvedSudoku2.json">Unsolved Sudoku 2</option>
+        <option value="unsolvedSudoku3.json">Unsolved Sudoku 3</option>
+        <option value="unsolvedSudoku4.json">Unsolved Sudoku 4</option>
+        <option value="unsolvedSudoku5.json">Unsolved Sudoku 5</option>
+        <option value="unsolvedSudoku6.json">Unsolved Sudoku 6</option>
+        <option value="unsolvedSudoku7.json">Unsolved Sudoku 7</option>
+        <option value="unsolvedSudoku8.json">Unsolved Sudoku 8</option>
+
+      </select>
+      <button onclick="fetchUnsolved()">Show Unsolved Sudoku</button>
+      <button onclick="fetchSolved()">Show Solved Sudoku</button>
+    </div>
+
+    <div class="sudoku-container">
+      <div class="table-wrapper">
+        <h2>Unsolved Sudoku</h2>
+        <table id="unsolvedTable" class="sudoku-table"></table>
+      </div>
+      <div class="table-wrapper">
+        <h2>Solved Sudoku</h2>
+        <table id="solvedTable" class="sudoku-table"></table>
+        <div id="result-message"></div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
