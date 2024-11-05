@@ -43,7 +43,7 @@ app.post("/login", async function (req, res) {
         res.send(`Login erfolgreich. Willkommen, ${username} du cooles kid!<br><a href="/Mitglieder">Mitglieder</a><br><a href="/logout">Logout</a><br><a href="/">Home</a>`);
     }
     else {
-        res.send("SOOOOOOOOOOOOO nicht");
+        res.send("SOOOOOOOOOOOOO nicht <a href='/'>Nochmal</a>");
     }
 
 });
