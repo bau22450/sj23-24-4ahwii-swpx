@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@prisma/client": "^5.22.0",
     "connect-memcached": "^2.0.0",
     "cookie-parser": "^1.4.7",
     "crypto": "^1.0.1",
